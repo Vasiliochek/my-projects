@@ -1,0 +1,115 @@
+@import "imports";
+
+body {
+  width: 100%;
+
+  font-family: TTFirsNeueTrial, roboto, sans-serif;
+
+  position: relative;
+}
+
+.container {
+  max-width: 1290px;
+
+  margin: 0 auto;
+  padding: 0 31px;
+  @media (max-width: 1140px) {
+    max-width: 1024px;
+  }
+  @media (max-width: 960px) {
+    max-width: 768px;
+
+    padding: 0 27px;
+  }
+  @media (max-width: 730px) {
+    max-width: 520px;
+  }
+  @media (max-width: 500px) {
+    max-width: 278px;
+
+    padding: 0 21px;
+  }
+}
+
+header {
+  background: #202020;
+}
+
+.hero {
+  background: #202020;
+}
+
+footer {
+  background: #202020;
+}
+
+.orange-btn {
+  background: #ff6e30;
+  color: #fff;
+  border: none;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    background: #bc572b;
+  }
+
+  &:focus {
+    outline: 3px solid #ce4307;
+    background: #ff6e30;
+  }
+
+  &:active {
+    background: #ce4307;
+  }
+}
+
+.project-btn {
+  background: transparent;
+  border: none;
+  outline: 3px solid #ff6e30;
+  color: #fff;
+  transition: 0.3s ease;
+
+  &:hover {
+    background: #ff6e30;
+  }
+
+  &:focus {
+    outline: 3px solid #ff6e30;
+    background: #bc572b;
+  }
+
+  &:active {
+    background: #ce4307;
+  }
+}
+
+.search-width {
+  width: 169px;
+}
+
+.search-btn-opacity1 {
+  opacity: 1;
+}
+
+.search-btn-opacity0 {
+  opacity: 0;
+}
+
+.hide-info {
+  left: -350px;
+  top: 400px;
+  @media (max-width: 1140px) {
+    left: -530px;
+    top: 400px;
+  }
+  @media (max-width: 960px) {
+    top: 400px;
+    left: -660px;
+  }
+}
+
+.rotate-contacts-btn {
+  transform: rotate(45deg);
+}

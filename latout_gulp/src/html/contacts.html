@@ -1,0 +1,44 @@
+<section class="contacts">
+  <div class="container">
+    <h3 class="contacts__title">Контакты</h3>
+
+    <div class="contacts__grid-container">
+      <div class="contacts__map-container" id="map-container">
+        <div id="info" class="contacts__info">
+          <button id="close-btn-contacts" class="contacts__close-map-btn">
+            <svg width="20" height="20" viewBox="0 0 20 20">
+              <use xlink:href="./images/icons/icons.svg#close-btn"></use>
+            </svg>
+          </button>
+
+          <h4 class="contacts__info__title">Студия «High pass»</h4>
+          <p class="contacts__info__adress">
+            107045, Москва, Даев переулок, дом 41, бизнес-центр «Даев Плаза»,
+            этаж 8, офис № 82
+            <span class="contacts__info__phone">
+              <svg width="22" height="22" viewBox="0 0 22 22">
+                <use xlink:href="./images/icons/icons.svg#mdi_call"></use>
+              </svg>
+              +7 495 424-23-532
+            </span>
+          </p>
+
+        </div>
+      </div>
+
+      <div class="contacts__form-container">
+        <h4 class="contacts__form__title">Оставить заявку</h4>
+        <p class="contacts__form__descr">
+          Оставьте ваши данные, указав в графе «Комментарий» желаемые время
+          и дату съёмки или другого мероприятия
+        </p>
+        <form class="contacts__form" action="#">
+          <input type="text" placeholder="Имя" />
+          <input type="text" placeholder="Email" />
+          <textarea id="txtArea" rows="6" cols="70" maxlength="259" placeholder="Комментарий"></textarea>
+          <button class="contacts__form__btn orange-btn">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+@mixin calendar {
+  content: " ";
+  position: absolute;
+  top: -1px;
+  left: 0;
+
+  height: 14px;
+  width: 14px;
+
+  background-image: url("../images/mdi_calendar_today.svg");
+  background-repeat: no-repeat;
+}

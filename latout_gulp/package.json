@@ -1,0 +1,56 @@
+{
+  "type": "module",
+  "name": "hight-pass",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "description": "Hight Pass project",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build --build",
+    "sprite": "gulp sprite",
+    "zip": "gulp deployZip --build",
+    "deploy": "gulp deployFtp --build"
+  },
+  "keywords": [
+    "gulp",
+    "sass",
+    "js"
+  ],
+  "author": "Vasily Makarov",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "latest",
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-file-include": "latest",
+    "gulp-fonter": "latest",
+    "gulp-group-css-media-queries": "latest",
+    "gulp-if": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-newer": "latest",
+    "gulp-notify": "latest",
+    "gulp-plumber": "latest",
+    "gulp-rename": "latest",
+    "gulp-replace": "latest",
+    "gulp-sass": "latest",
+    "gulp-svg-sprite": "latest",
+    "gulp-ttf2woff2": "latest",
+    "gulp-util": "latest",
+    "gulp-version-number": "latest",
+    "gulp-webp": "latest",
+    "gulp-webp-html-nosvg-edit": "latest",
+    "gulp-webpcss": "latest",
+    "gulp-zip": "latest",
+    "sass": "latest",
+    "vinyl-ftp": "latest",
+    "webp-converter": "2.2.3",
+    "webpack": "latest",
+    "webpack-stream": "latest"
+  },
+  "dependencies": {
+    "swiper": "latest",
+    "ymaps": "^0.2.1"
+  }
+}
