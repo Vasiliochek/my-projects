@@ -1,0 +1,160 @@
+.container-fluid {
+  width: 100%;
+  height: 937px;
+  padding-top: 20px;
+
+  background-image: url('../img/warcraft_parchment_by_repko1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.my-row {
+  max-width: 60%;
+  height: 90%;
+
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 15px;
+
+  row-gap: 15px;
+  column-gap: 15px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+
+  height: 200px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 40px;
+  padding-top: 100px;
+
+  column-gap: 50px;
+
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  padding: 0;
+  background-color: transparent;
+
+  height: 100%;
+
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card-rotate .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-image: url('../img/card-front.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  display: flex;
+
+  background-image: url('../img/card-back.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  color: rgb(194, 141, 27);
+  font-size: 2em;
+  align-items: center;
+  justify-content: center;
+
+  transform: rotateY(180deg);
+}
+
+.hide-card {
+  visibility: hidden;
+}
+
+.btn-start {
+  height: 100%;
+}
+
+.form-check {
+  padding: 0;
+  width: 120px;
+  height: 100%;
+}
+
+.btn-outline-success {
+  width: 100%;
+  height: 100%;
+  padding-top: 30%;
+}
+
+.form-control-dark {
+  margin-top: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  width: 30%;
+
+  margin: 0;
+}
+
+.stop-btn-container {
+  display: flex;
+}
+
+.btn-stop {
+  width: 15%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.btn-hide {
+  display: none;
+}
+
+.btn-restart {
+  width: 60%;
+}
+
+.timer-btn {
+  pointer-events: none;
+  width: 5%;
+  margin: 0 auto;
+}
