@@ -1,0 +1,1 @@
+export type EventName = 'main' | 'books' | 'readed'
