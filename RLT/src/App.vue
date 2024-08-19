@@ -1,47 +1,36 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import LeftBlock from './components/LeftBlock.vue';
+import CellBlock from './components/CellBlock.vue';
+import BottomBlock from './components/BottomBlock.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
+  <main class="main">
+    <div class="main__container">
+    <LeftBlock />
+    <CellBlock />
+    <BottomBlock />
+  </div>
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style scoped lang="scss">
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .main__container {
+  max-width: 849px;
+  max-height: 660px;
+
+  padding: 32px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
