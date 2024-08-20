@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LeftBlock from './components/LeftBlock.vue';
-import CellBlock from './components/CellBlock.vue';
+import CellTab from './components/CellTab.vue';
 import BottomBlock from './components/BottomBlock.vue';
 </script>
 
@@ -8,7 +8,7 @@ import BottomBlock from './components/BottomBlock.vue';
   <main class="main">
     <div class="main__container">
     <LeftBlock />
-    <CellBlock />
+    <CellTab />
     <BottomBlock />
   </div>
   </main>
