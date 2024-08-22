@@ -5,157 +5,56 @@
       v-for="cellContent in cellsArr"
       :key="cellContent.id"
       :cellContent="cellContent"
+      :draggable="true"
       @click="openModal(cellContent)"
+      @dragstart="startDrag($event, cellContent)"
+      @drop="onDrop(cellContent)"
+      @dragover.prevent
+      @dragenter.prevent
+      :id="cellContent.id"
       />
       <ModalMenu 
       class="modal modal-off"
       @closeModal="closeModal"
+      @setQuantity="setQuantity"
       />
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import Cell from './Cell.vue';
 import ModalMenu from './ModalMenu.vue';
+import type { CellObject } from '@/types/Cell.ts';
+import { getCells } from '../stores/store';
+import { storeToRefs } from 'pinia';
 
-const emit = defineEmits(['closeModal'])
-
-const cellsArr = ref([
-  {
-    id: 1,
-    quantity: 4,
-    color: 'green'
-  },
-  {
-    id: 2,
-    quantity: 2,
-    color: 'red'
-  },
-  {
-    id: 3,
-    quantity: 5,
-    color: 'purple'
-  },
-  {
-    id: 4,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 5,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 6,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 7,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 8,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 9,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 10,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 11,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 12,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 13,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 14,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 15,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 16,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 17,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 18,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 19,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 20,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 21,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 22,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 23,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 24,
-    quantity: 0,
-    color: ''
-  },
-  {
-    id: 25,
-    quantity: 0,
-    color: ''
+declare global {
+  interface Array<T> {
+    swap(index1: number, index2:number);
   }
-])
+}
 
-const openModal = (cellContent: any) => {
+Array.prototype.swap = function (index1, index2) {
+  [this[index1], this[index2]] = [this[index2], this[index1]];
+};
+
+const emit = defineEmits(['setQuantity'])
+
+let modalData = reactive({})
+
+const store = storeToRefs(getCells())
+const cellsArr = ref(store.cells)
+
+const openModal = (cellContent: CellObject) => {
   const modal = document.querySelector('.modal')
 
   if (cellContent.quantity) {
     modal?.classList.add('modal-active')
     modal?.classList.remove('modal-off')
+
+    modalData = cellContent
   }
   
 }
@@ -164,6 +63,37 @@ const closeModal = () => {
   const modal = document.querySelector('.modal')
   modal?.classList.add('modal-off')
   modal?.classList.remove('modal-active')
+
+  modalData = {}
+}
+
+const setQuantity = (val) => {
+  modalData['quantity'] = Number(val)
+  console.log(modalData);
+
+  cellsArr.value.map((cell: CellObject) => {
+    if (cell.id === modalData['id']) {
+      return modalData
+    } else {
+      return cell
+    }
+  })
+
+  getCells().putCellsLocal()
+}
+
+const startDrag = (event, item) => {
+    event.dataTransfer.dropEffect = 'move'
+    event.dataTransfer.effectAllowed = 'move'
+    
+    modalData = item
+}
+
+const onDrop = (item) => {
+  const secontItem = item
+  
+  cellsArr.value.swap(cellsArr.value.indexOf(modalData as CellObject), cellsArr.value.indexOf(secontItem))
+  getCells().putCellsLocal()
 }
 
 </script>

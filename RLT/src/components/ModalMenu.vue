@@ -1,6 +1,6 @@
 <template>
   <div class="modal-container">
-    <SvgXMark class="close-btn" @click="$emit('closeModal')"/>
+    <SvgXMark class="close-btn" @click="closeModal"/>
     <div class="cell-content">
         <div class="cell-content__wrapper">
           <div class="bottom-square"></div>
@@ -20,13 +20,20 @@
     <div class="modal-control">
       <div 
       v-show="editOpen" class="modal-control__form-container">
-        <form class="form" @submit.prevent="">
-          <input class="input" type="text" name="quantity" placeholder="Введите количество">
+        <form class="form" @submit.prevent="sendNewQuantity">
+          <input 
+           v-model="newQuantity"
+           class="input" id="quantity-input" type="text" name="quantity" :placeholder="'Введите количество'">
           <div class="buttons-container">
             <button
             @click="editOpen = false"
-             class="discard-btn">Отмена</button>
-            <button class="confirm-btn">Подтвердить</button>
+             class="discard-btn"
+             >Отмена</button>
+            <button 
+            id="submit-btn"
+            value="submit"
+            class="confirm-btn"
+            >Подтвердить</button>
           </div>
         </form>
       </div>
@@ -46,6 +53,22 @@ import SvgXMark from './icons/SvgXMark.vue';
 import SkeletonDiv from './SkeletonDiv.vue';
 
 const editOpen = ref(false)
+
+const newQuantity = ref(null)
+
+const emit = defineEmits(['closeModal', 'setQuantity'])
+
+const sendNewQuantity = () => {
+  emit('setQuantity', newQuantity.value)
+  editOpen.value = false
+  emit('closeModal')
+}
+
+const closeModal = () => {
+  emit('closeModal')
+  editOpen.value = false
+}
+
 
 </script>
 

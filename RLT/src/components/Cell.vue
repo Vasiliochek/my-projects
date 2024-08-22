@@ -2,8 +2,16 @@
   <div class="cell-container" >
     <div class="cell-content-wrapper" v-if="cellContent.quantity">
       <div class="cell-content">
-        <div class="bottom-square"></div>
-        <div class="top-square"></div>
+        <div 
+        :style="changingColorBottom()"
+        class="bottom-square"
+        >
+        </div>
+        <div 
+        :style="changingColorTop()"
+        class="top-square"
+        >
+        </div>
       </div>
       <div class="cell-quantity">
         {{ cellContent.quantity }}
@@ -13,7 +21,37 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps(['cellContent'])
+
+const props = defineProps(['cellContent', 'newQuantity'])
+
+const changingColorBottom = () => {
+  switch (props.cellContent.color) {
+    case ('green'): {
+      return 'background-color: rgba(127, 170, 101, 1);'
+    }
+    case ('orange'): {
+      return 'background-color: rgba(170, 151, 101, 1);'
+    }
+    case ('purple'): {
+      return 'background-color: rgba(101, 108, 170, 1);'
+    }
+  }
+}
+const changingColorTop = () => {
+  switch (props.cellContent.color) {
+    case ('green'): {
+      return 'background-color: rgba(184, 217, 152, 0.35);'
+    }
+    case ('orange'): {
+      return 'background-color: rgba(217, 187, 152, 0.35);'
+    }
+    case ('purple'): {
+      return 'background-color: rgba(116, 129, 237, 0.35);'
+    }
+  }
+}
+
+const emit = defineEmits(['setQuantity'])
 </script>
 
 <style lang="scss" scoped >

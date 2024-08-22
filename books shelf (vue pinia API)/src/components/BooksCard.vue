@@ -11,7 +11,6 @@
         <button class="readed-btn" v-if="userStatus.login" @click="readedBook">Already readed</button>
       </div>
     </div>
-    
   </div>
 </template>
 
