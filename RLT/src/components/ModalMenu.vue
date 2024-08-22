@@ -26,10 +26,12 @@
            class="input" id="quantity-input" type="text" name="quantity" :placeholder="'Введите количество'">
           <div class="buttons-container">
             <button
+            type="button"
             @click="editOpen = false"
              class="discard-btn"
              >Отмена</button>
             <button 
+            type="submit"
             id="submit-btn"
             value="submit"
             class="confirm-btn"
@@ -62,6 +64,7 @@ const sendNewQuantity = () => {
   emit('setQuantity', newQuantity.value)
   editOpen.value = false
   emit('closeModal')
+  console.log('submit')
 }
 
 const closeModal = () => {
