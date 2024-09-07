@@ -2,8 +2,6 @@
 export default {
   content: [
     './components/**/*.{vue,js}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
     './nuxt.config.{js,ts}',
     './app.vue',
   ],
